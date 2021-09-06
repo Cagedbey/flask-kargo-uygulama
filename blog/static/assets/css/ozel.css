@@ -1,0 +1,80 @@
+.heading{
+
+ color:#dc3545;
+}
+
+.intro{
+
+    color:white !important;
+
+}
+div.media-body h3.title{
+
+    color:#dc3545 !important;
+}
+
+.heading2{
+    /*animation: blinker 10s linear infinite;*/
+    color:moccasin !important;
+  
+}
+span.category a{
+font-size: 20px !important;
+
+}
+
+/*@keyframes blinker {  
+    50% { opacity: 0; }
+}*/
+
+a.dropdown-item{
+
+    font-size:20px !important;
+    
+}
+
+a.dropdown-item:hover{
+    background:#343a40 !important;
+    color:salmon !important;
+}
+
+span.cate_ad:hover{
+
+    color:white  !important;
+    margin-left: 10px !important;
+    transition:  0.18s  0.5s linear;
+
+}
+span.cate_ad{
+
+    font-size: 13px  !important;
+}
+span.cate_ad a{
+
+    color:white !important;
+}
+.img-icon img {
+
+    outline: none  !important; 
+}
+.about_form{
+    padding-top: 50px;
+
+    margin-left: 350px;
+}
+
+.about_form .form-group{
+   
+
+    width: 400px  !important;
+}
+
+.about_form .form-group label{
+
+  color:red;
+}
+
+.ckeditor{
+
+    margin-bottom: 50px;
+}

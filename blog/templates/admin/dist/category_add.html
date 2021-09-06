@@ -1,0 +1,94 @@
+s{%  extends 'base.html' %}
+{% block content %}
+
+<div class="main-wrapper">
+  <section class="blog-list px-3 py-5 p-md-5">
+    <div class="container">
+      
+        <header><h3 class="text-success pl-5 text-center">Sipariş Durumu ekle</h3></header>
+        {% with messages = get_flashed_messages(with_categories=true) %}
+              {% if messages %}
+                {% for category, message in messages %}
+                  <div class="alert alert-{{category}}">{{message}}</div>
+                {% endfor %}
+                </ul>
+              {% endif %}
+        {% endwith %}
+        <div class="col-lg-12">
+          
+        <table class="table table-dark">
+          <thead>
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">Sipariş Durumları Listesi</th>
+            </tr>
+          </thead>
+          <tbody>
+            {% for status in durum %}
+            <tr>
+              <th scope="row">{{status.id}}</th>
+              <td>{{status.status_name}} <a href="{{url_for('admin.status_update',id=status.id)}}" class="ml-2"><i class="fa fa-edit text-success"></i></a> <a class="tikla ml-2" href="{{url_for('admin.status_delete',id=status.id)}}"><i class="fa fa-trash text-success text-danger"></i></a>
+                <div style="display:inline; display: none;" class="float-right"> <input type="text" class="mr-2"><button class="btn btn-outline-danger">Güncelle</button></div>
+                
+              </td>
+            </tr>
+            {% endfor %}
+            <tr>
+              <th scope="row"></th>
+              <td> <form action="" method="POST" enctype=multipart/form-data> 
+                <div class="form-group float-left">
+                     <label for="">Sipariş Durum Ekle</label>
+                    <input type="text" value="" class="" name="status_add"> 
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+                      
+               </form></td>
+            </tr>
+
+            <tr class="tr_update" style="display: none;">
+              <th scope="row"></th>
+              <td> <form action="" method="POST" enctype=multipart/form-data> 
+                <div class="form-group float-left">
+                     <label for="">Sipariş Durum Ekle</label>
+                    <input type="text" class="" name="status_update"> 
+                    <button type="submit" class="btn btn-primary">Gönder</button>
+                </div>
+                      
+               </form></td>
+            </tr>
+          </tbody>
+        </table>
+        
+        </div>
+
+    </div>
+  </section>
+</div>
+{% endblock %}
+
+{% block content_bg %} bg-dark {% endblock %}
+
+
+{% block jq %}
+<script>
+/*    
+$(function(){
+	$(".tikla").click(function(){
+    $('.tr_update').toggle("slow");
+    
+
+
+	});
+
+
+}); */
+
+</script>
+
+
+<!--<script src="{{url_for('.static',filename='dist/js/jq.js')}}"></script>-->
+
+
+{% endblock %}
+
+   

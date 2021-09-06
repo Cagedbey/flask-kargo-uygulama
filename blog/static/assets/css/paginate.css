@@ -1,0 +1,23 @@
+a.btn{
+
+    color:white;
+    background:#dc3545 !important;
+
+}
+
+
+a.btn:hover{
+
+    color :black !important;
+    
+
+   
+
+}
+
+a.btn-outline-dark{
+
+    background:moccasin !important;
+    color:black;
+
+}

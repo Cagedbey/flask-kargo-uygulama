@@ -1,0 +1,73 @@
+{% extends 'base.html' %}
+{% block content %}
+                        <h1 class="mt-4">Cagedbey Panel</h1>
+                        <div class="card mb-4">
+                            <div class="card-header">
+                                <i class="fas fa-table mr-1"></i>
+                                DataTable Example
+                            </div>
+                            <div class="card-body">
+                                <div class="table-responsive">
+                                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                        <thead>
+                                            <tr>
+                                                <th>Username</th>
+                                                <th>Siparis_Durumu</th>
+                                                <th>Ürün_kodu</th>
+                                                <th>Siparis_Tarihi</th>
+                                                {% if admin.is_admin == True %}
+                                                <th>Post_Edit</th>
+                                                {% endif %}
+                                                
+                                            </tr>
+                                        </thead>
+                                        <tfoot>
+                                            <tr>
+                                                <th>Baslik</th>
+                                                <th>Post_subtitle</th>
+                                                <th>Ürün_kodu</th>
+                                                <th>Post_date</th>
+                                                {% if admin.is_admin == True %}
+                                                <th>Post_Edit</th>
+                                                 {% endif %}                                            
+                                                </tr>
+                                        </tfoot>
+                                        <tbody>
+                                            {% for icerik in urun %}
+                                                <tr>
+                                                    <td>{{icerik.user.username}}</td>
+                                                    <td>{{icerik.status.status_name}}</td>
+                                                    <td>{{icerik.urun_kodu}}</td>
+                                                    <td class="text-danger"><b>{{str(icerik.cikis_tarihi).split(' ')[0]}}</b>
+                                                        <b>{{str(icerik.cikis_tarihi).split(' ')[1].split('.')[0]}}</b>
+                                                    </td>
+                                                    {% if admin.is_admin == True %}
+                                                            <td class="text-center p-4"><a href="{{url_for('admin.create_update',id=icerik.id)}}"><i class="fas fa-edit text-success"></i></a> <a href="{{url_for('admin.create_delete',id=icerik.id)}}"><i class="fas fa-trash-alt text-danger"></i></a></td>
+                                                    {% endif %}
+                                            {% endfor %}
+                    
+                                        </tbody>
+                                    </table>
+                                </div>
+                            </div>
+                        </div>
+
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2020</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+{% endblock %}
+
+{% block bg %}
+
+{% endblock %}
+
+        
